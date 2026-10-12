@@ -25,20 +25,22 @@ if [ -z $( echo -n "$2" | grep '),-(firmware)') ]; then
 	echo "Invalid mtd partition table!"
 	exit 1
 fi
+
 DEFCONFIG="configs/mt7621_build_defconfig"
-if [ "$1" = 'NOR' ]; then
-	cp configs/mt7621_nor_template_defconfig ${DEFCONFIG}
-	echo -e "CONFIG_MTDPARTS_DEFAULT=\"mtdparts=raspi:$2\"" >> ${DEFCONFIG}
-elif [ "$1" = 'NAND' ]; then
-	cp configs/mt7621_nand_template_defconfig ${DEFCONFIG}
-	echo -e "CONFIG_MTDPARTS_DEFAULT=\"mtdparts=nand0:$2\"" >> ${DEFCONFIG}
-	elif [ "$1" = 'NAND-NMBM-RFB-AX' ]; then
-	cp configs/mt7621_nmbm_ax_rfb_defconfig ${DEFCONFIG}
-	echo -e "CONFIG_MTDPARTS_DEFAULT=\"mtdparts=nmbm0:$2\"" >> ${DEFCONFIG}
-else
-	cp configs/mt7621_nmbm_template_defconfig ${DEFCONFIG}
-	echo -e "CONFIG_MTDPARTS_DEFAULT=\"mtdparts=nmbm0:$2\"" >> ${DEFCONFIG}
+if [ "$1" = "NOR" ]; then 
+    cp configs/mt7621_nor_template_defconfig "${DEFCONFIG}"
+    echo "CONFIG_MTDPARTS_DEFAULT=\"mtdparts=raspi:$2\"" >> "${DEFCONFIG}"
+elif [ "$1" = "NAND" ]; then 
+    cp configs/mt7621_nand_template_defconfig "${DEFCONFIG}"
+    echo "CONFIG_MTDPARTS_DEFAULT=\"mtdparts=nand0:$2\"" >> "${DEFCONFIG}"
+elif [ "$1" = "NAND-NMBM-RFB-AX" ]; then 
+    cp configs/mt7621_nmbm_ax_rfb_defconfig "${DEFCONFIG}"
+    echo "CONFIG_MTDPARTS_DEFAULT=\"mtdparts=nand0:$2\"" >> "${DEFCONFIG}"
+else 
+    cp configs/mt7621_nmbm_template_defconfig "${DEFCONFIG}"
+    echo "CONFIG_MTDPARTS_DEFAULT=\"mtdparts=nmbm0:$2\"" >> "${DEFCONFIG}"
 fi
+
 echo "set partition table: $2"
 
 echo "set kernel offset: $3"
