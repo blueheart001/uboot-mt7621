@@ -33,7 +33,7 @@ if [ "$1" = "NOR" ]; then
 elif [ "$1" = "NAND" ]; then 
     cp configs/mt7621_nand_template_defconfig "${DEFCONFIG}"
     echo "CONFIG_MTDPARTS_DEFAULT=\"mtdparts=nand0:$2\"" >> "${DEFCONFIG}"
-elif [ "$1" = "NAND-NMBM-RFB-AX" ]; then 
+elif [ "$1" = "NANDNMBMRFBAX" ]; then 
     cp configs/mt7621_nmbm_ax_rfb_defconfig "${DEFCONFIG}"
     echo "CONFIG_MTDPARTS_DEFAULT=\"mtdparts=nand0:$2\"" >> "${DEFCONFIG}"
 else 
