@@ -10,7 +10,7 @@ on:
         options:
         - 'NOR'
         - 'NAND'
-        - 'NAND-NMBM-RFB-AX'
+        - 'NANDNMBMRFBAX'
         - 'NAND-NMBM'
       mtdparts:
         description: 'MTD Partition Table'
